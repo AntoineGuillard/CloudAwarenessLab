@@ -13,4 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag webserver-action:$(date +%s)
+      with:
+        image: antoineguillard/action-webserver
+        tag: latest
+        registry: https://hub.docker.com/u/antoineguillard
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+     # run: docker build . --file Dockerfile --tag webserver-action:$(date +%s)
