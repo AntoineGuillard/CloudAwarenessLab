@@ -339,3 +339,8 @@ Resources:
         FromPort: 22
         IpProtocol: tcp
         ToPort: 22
+      SecurityGroupEgress:
+      - CidrIP: 0.0.0.0/0
+        IpProtocol: All
+        FromPort: 0
+        ToPort: 65535
