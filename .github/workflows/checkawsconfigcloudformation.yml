@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Check config File for CloudFormation
 
 on:
   push:
@@ -12,6 +12,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Check config file for CloudFormation
+      uses: minchao/cfn-nag-action@master
+      with:
+        args: '--input-path cf-all.yaml'
 
     - name: Check config file for CloudFormation
       uses: minchao/cfn-nag-action@master
